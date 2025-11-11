@@ -2,18 +2,53 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Redirecting to AllMyLinks…</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Your Links – Redirecting to AllMyLinks</title>
+
+<!-- Soft redirect after 4 seconds -->
 <meta http-equiv="refresh" content="4;url=https://allmylinks.com/nervinity">
+
 <style>
-body{font-family:sans-serif;background:#0f1720;color:#e6eef6;display:flex;align-items:center;justify-content:center;height:100vh;text-align:center}
-a{color:#f59e0b}
+  :root{
+    --bg:#0f1720;--card:#0b1220;--accent:#f59e0b;--muted:#9aa9b8
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;
+    background:var(--bg);color:#e6eef6;
+    display:flex;min-height:100vh;align-items:center;justify-content:center;
+    padding:24px;text-align:center
+  }
+  .wrap{width:100%;max-width:720px}
+  h1{font-size:24px;margin-bottom:8px}
+  p{margin:0 0 16px;color:var(--muted)}
+  .card{
+    background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.02));
+    padding:18px;border-radius:12px;
+    box-shadow:0 6px 18px rgba(2,6,23,0.6)
+  }
+  a.btn{
+    display:block;text-decoration:none;text-align:left;
+    background:#071224;border:1px solid rgba(255,255,255,0.03);
+    border-radius:10px;padding:12px 14px;margin-bottom:10px;color:#e6eef6
+  }
+  a.btn strong{display:block;color:#fff;font-size:16px}
+  a.btn small{color:var(--muted);font-size:13px}
+  .timer{margin-top:8px;font-size:14px;color:var(--muted)}
 </style>
 </head>
 <body>
-  <main>
+  <div class="wrap">
     <h1>Redirecting to AllMyLinks…</h1>
-    <p>If you’re not redirected automatically, <a href="https://allmylinks.com/yourprofile">click here</a>.</p>
-  </main>
+    <p>Hang tight — you’ll be sent to my main profile in a few seconds.</p>
+
+    <div class="card">
+      <a class="btn" href="https://allmylinks.com/yourprofile" target="_blank" rel="noopener noreferrer">
+        <strong>AllMyLinks</strong>
+        <small>Full link hub (opens in new tab)</small>
+      </a>
+
+    <p class="timer">Not redirected? <a href="https://allmylinks.com/nervinity">Click here</a>.</p>
+  </div>
 </body>
 </html>
