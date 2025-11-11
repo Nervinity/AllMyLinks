@@ -1,40 +1,38 @@
-<<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Your Links – Redirecting to AllMyLinks</title>
-
-<!-- Soft redirect after 4 seconds -->
-<meta http-equiv="refresh" content="4;url=https://allmylinks.com/nervinity">
-
+<title>Redirecting to AllMyLinks…</title>
 <style>
-  :root{
-    --bg:#0f1720;--card:#0b1220;--accent:#f59e0b;--muted:#9aa9b8
-  }
+  :root{--bg:#0f1720;--card:#0b1220;--accent:#f59e0b;--muted:#9aa9b8}
   *{box-sizing:border-box}
   body{
-    margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;
-    background:var(--bg);color:#e6eef6;
-    display:flex;min-height:100vh;align-items:center;justify-content:center;
-    padding:24px;text-align:center
+    margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+    background:var(--bg);color:#e6eef6;display:flex;min-height:100vh;
+    align-items:center;justify-content:center;padding:24px;text-align:center
   }
   .wrap{width:100%;max-width:720px}
   h1{font-size:24px;margin-bottom:8px}
   p{margin:0 0 16px;color:var(--muted)}
   .card{
-    background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.02));
-    padding:18px;border-radius:12px;
-    box-shadow:0 6px 18px rgba(2,6,23,0.6)
+    background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(0,0,0,.02));
+    padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,.6);
+    margin-top:6px;margin-bottom:10px
   }
   a.btn{
-    display:block;text-decoration:none;text-align:left;
-    background:#071224;border:1px solid rgba(255,255,255,0.03);
-    border-radius:10px;padding:12px 14px;margin-bottom:10px;color:#e6eef6
+    display:block;text-decoration:none;text-align:left;background:#071224;
+    border:1px solid rgba(255,255,255,.03);border-radius:10px;
+    padding:12px 14px;margin-bottom:10px;color:#e6eef6
   }
-  a.btn strong{display:block;color:#fff;font-size:16px}
-  a.btn small{color:var(--muted);font-size:13px}
-  .timer{margin-top:8px;font-size:14px;color:var(--muted)}
+  a.btn strong{display:block;color:#fff;font-size:16px;margin-bottom:4px}
+  a.btn small{
+    display:block;        /* forces each <small> onto its own line */
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.4;
+  }
+  .timer{margin-top:8px;font-size:16px;color:var(--accent);font-weight:600}
 </style>
 </head>
 <body>
@@ -48,9 +46,26 @@
         <small>https://allmylinks.com/nervinity</small>
         <small>Full link hub (opens in new tab)</small>
       </a>
+    </div>
 
     <p class="timer">Redirecting in <span id="countdown">5</span> seconds…</p>
-    <p class="timer">Not redirected? <a href="https://allmylinks.com/nervinity">Click here</a>.</p>
+    <p class="timer">Not redirected? <a href="https://allmylinks.com/nervinity" style="color:#f59e0b">Click here</a>.</p>
   </div>
+
+  <script>
+    let seconds = 5;
+    const targetUrl = "https://allmylinks.com/nervinity";
+    const el = document.getElementById("countdown");
+
+    el.textContent = seconds;
+    const t = setInterval(()=>{
+      seconds--;
+      el.textContent = seconds;
+      if (seconds <= 0){
+        clearInterval(t);
+        window.location.href = targetUrl;
+      }
+    }, 1000);
+  </script>
 </body>
 </html>
